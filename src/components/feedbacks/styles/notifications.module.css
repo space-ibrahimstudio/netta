@@ -1,0 +1,73 @@
+.notifFloatContentText {
+  margin: 0;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+}
+
+.notifFloat,
+.notifFloatContent {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.notifFloatContent {
+  flex: 1;
+  border-radius: var(--pixel-10);
+  background-color: var(--color-primary);
+  box-shadow: 0 var(--pixel-20) var(--pixel-5) transparent, 0 var(--pixel-15) var(--pixel-5) transparent, 0 var(--pixel-10) var(--pixel-5) rgba(0, 0, 0, 0.01), 0 var(--pixel-5) var(--pixel-5) rgba(0, 0, 0, 0.02), 0 1px var(--pixel-2) rgba(0, 0, 0, 0.03);
+  padding: var(--pixel-20);
+  max-width: var(--pixel-600);
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--color-light);
+  font-family: var(--font-inter);
+}
+
+.notifFloat {
+  width: 100%;
+  margin: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: var(--pixel-10) var(--pixel-60);
+  z-index: 10000;
+  animation-name: slidedown;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.notifFloat.out {
+  animation-name: slideup;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slidedown {
+  from {
+    opacity: 0;
+    transform: translateY(var(--pixel-min-30));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideup {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--pixel-min-30));
+  }
+}

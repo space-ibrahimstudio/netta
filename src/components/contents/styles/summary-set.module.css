@@ -1,0 +1,40 @@
+.setTitle {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: -webkit-inline-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.setContent,
+.summarySet {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--pixel-10);
+}
+
+.setContent {
+  border-radius: var(--pixel-20);
+  background-color: var(--color-light);
+  overflow: hidden;
+  flex-direction: row;
+  padding: var(--pixel-10);
+  display: grid;
+}
+
+.summarySet {
+  flex-direction: column;
+  text-align: left;
+  font-size: var(--font-md);
+  color: var(--color-secondary);
+  font-family: var(--font-jakarta);
+}

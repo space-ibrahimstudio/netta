@@ -1,0 +1,61 @@
+.paginationArrow {
+  cursor: pointer;
+  border: 0;
+  opacity: 1;
+  padding: var(--pixel-5) var(--pixel-20);
+  background-color: transparent;
+  border-radius: var(--pixel-10);
+  height: var(--pixel-50);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--color-secondary);
+  justify-content: center;
+  box-sizing: border-box;
+  transition: var(--transit);
+}
+
+.paginationArrow:hover {
+  background-color: var(--color-primary-5);
+}
+
+.paginationArrow.active {
+  color: var(--color-light);
+  background-color: var(--color-primary);
+}
+
+.paginationArrow.disable {
+  opacity: 0.5;
+}
+
+.paginationArrow.ellipsis:hover,
+.paginationArrow.disable:hover {
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+.paginationArrow:focus {
+  border: 0;
+  outline: none;
+}
+
+.paginationNumText {
+  position: relative;
+  font-size: var(--font-xsm);
+  font-family: var(--font-inter);
+  color: inherit;
+  text-align: left;
+}
+
+.pagination {
+  border-radius: var(--pixel-15);
+  background-color: var(--color-light);
+  box-shadow: 0 var(--pixel-20) var(--pixel-5) transparent, 0 var(--pixel-15) var(--pixel-5) transparent, 0 var(--pixel-10) var(--pixel-5) rgba(0, 0, 0, 0.01), 0 var(--pixel-5) var(--pixel-5) rgba(0, 0, 0, 0.02), 0 1px var(--pixel-2) rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pixel-5);
+  gap: var(--pixel-5);
+}

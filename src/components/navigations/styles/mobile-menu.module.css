@@ -1,0 +1,224 @@
+.closeButton,
+.menuHeader {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.closeButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--pixel-15);
+  background-color: var(--color-primary-5);
+  width: 35px;
+  border-radius: 5px;
+  height: 35px;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menuHeader {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menuButtonText {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-small);
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: inherit;
+  text-align: left;
+}
+
+.menuButton,
+.menuNav {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.menuButton {
+  cursor: pointer;
+  border: 0;
+  padding: 15px;
+  color: var(--color-secondary);
+  background-color: transparent;
+  border-radius: 10px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.menuButton.active {
+  color: var(--color-primary);
+  background-color: var(--color-primary-5);
+}
+
+.menuNav {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menuSocialTitle {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+
+.menuSocial,
+.menuSocialIcon {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menuSocialIcon {
+  gap: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menuSocial {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px 0;
+  font-size: var(--font-xsmall);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}
+
+.menuCtaText {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-small);
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.menuCta,
+.mobileMenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.menuCta {
+  cursor: pointer;
+  border: 0;
+  padding: 15px;
+  background-color: var(--color-primary);
+  align-self: stretch;
+  border-radius: 10px;
+  flex-direction: row;
+  gap: 0 15px;
+}
+
+.mobileMenu {
+  width: 305px;
+  border-radius: 15px 0 0 15px;
+  background-color: var(--color-foreground);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 25px;
+  box-sizing: border-box;
+  gap: 25px 0;
+  text-align: left;
+  color: var(--color-secondary);
+  z-index: 1002;
+  animation-name: slideFromRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.socialIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  opacity: 1;
+  width: var(--pixel-35);
+  height: var(--pixel-35);
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.socialIcon:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+  .mobileMenu {
+    width: 75vw;
+  }
+}
+
+.mobileMenu.close {
+  animation-name: slideToRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.mobileMenuBg {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.mobileMenuBg.close {
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}

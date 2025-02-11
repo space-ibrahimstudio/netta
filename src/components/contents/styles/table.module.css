@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+.expandContent,
+.tdExpand {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.expandContent {
+  align-items: flex-start;
+  border-radius: var(--pixel-5);
+  border: 1px solid var(--color-primary-20);
+  padding: var(--pixel-10);
+  gap: var(--pixel-10);
+}
+
+.tdExpand {
+  overflow: hidden;
+  background-color: var(--color-light);
+  padding: var(--pixel-5);
+}
+
+.atnIcon {
+  opacity: 1;
+  cursor: pointer;
+  width: var(--pixel-25);
+  height: var(--pixel-25);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: var(--transit);
+}
+
+.atnIcon:hover {
+  opacity: 0.5;
+}
+
+.tableBody {
+  position: relative;
+  border-radius: var(--pixel-10);
+  border: 1px solid var(--color-primary-20);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.regText {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+.regText.code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.regText.number {
+  font-family: "Roboto Mono", monospace;
+}
+
+.regText.code.copied,
+.regText.number.copied {
+  font-family: inherit;
+}
+
+.linkText {
+  opacity: 1;
+  text-decoration: underline;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.linkText.copied {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.thReg {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: var(--pixel-45);
+  padding: var(--pixel-10) var(--pixel-15);
+  text-align: left;
+  gap: var(--pixel-5);
+  font-size: var(--font-sm);
+  font-family: var(--font-inter);
+}
+
+.thReg.custom {
+  padding: var(--pixel-5);
+}
+
+.thReg.click {
+  cursor: pointer;
+}
+
+.tdLine {
+  background-color: var(--color-secondary-20);
+}
+
+.thLine {
+  background-color: var(--color-light-20);
+}
+
+.thLine,
+.tdLine {
+  opacity: 1;
+  overflow: hidden;
+  align-self: stretch;
+  width: 1px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.thLine:last-child,
+.tdLine:last-child {
+  opacity: 0;
+}
+
+.tableHead {
+  display: flex;
+  justify-content: flex-start;
+  border-radius: var(--pixel-10);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bodyRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--pixel-5);
+  background-color: transparent;
+  transition: var(--transit);
+}
+
+.bodyRow.complete {
+  background-color: var(--color-green-5);
+}
+
+.bodyRow.warning {
+  background-color: var(--color-yellow-5);
+}
+
+.bodyRow.danger {
+  background-color: var(--color-red-5);
+}
+
+.bodyRow.complete:hover {
+  background-color: var(--color-green-10);
+}
+
+.bodyRow.warning:hover {
+  background-color: var(--color-yellow-10);
+}
+
+.bodyRow.danger:hover {
+  background-color: var(--color-red-10);
+}
+
+.bodyRow:hover {
+  background-color: var(--color-primary-10);
+}
+
+.rowWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.rowWrap.complete:nth-child(even) {
+  background-color: var(--color-green-5);
+}
+
+.rowWrap.warning:nth-child(even) {
+  background-color: var(--color-yellow-5);
+}
+
+.rowWrap.danger:nth-child(even) {
+  background-color: var(--color-red-5);
+}
+
+.rowWrap:nth-child(even) {
+  background-color: var(--color-primary-5);
+}
+
+.table,
+.tableWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.table {
+  overflow-x: auto;
+  align-items: flex-start;
+  border-radius: var(--pixel-10);
+  gap: var(--pixel-10);
+}
+
+.table::-webkit-scrollbar {
+  height: var(--pixel-10);
+}
+
+.table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: var(--pixel-5);
+}
+
+.table:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
+.tableWrapper {
+  border-radius: var(--pixel-20);
+  background-color: var(--color-light);
+  box-shadow: 0 var(--pixel-20) var(--pixel-5) transparent, 0 var(--pixel-15) var(--pixel-5) transparent, 0 var(--pixel-10) var(--pixel-5) rgba(0, 0, 0, 0.01), 0 var(--pixel-5) var(--pixel-5) rgba(0, 0, 0, 0.02), 0 1px var(--pixel-2) rgba(0, 0, 0, 0.03);
+  align-items: center;
+  padding: var(--pixel-10);
+  text-align: left;
+  font-size: var(--font-sm);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}
+
+.nodataText {
+  align-self: stretch;
+  position: relative;
+  opacity: 0.5;
+}
+
+.tableNodata {
+  align-self: stretch;
+  border-radius: var(--pixel-10);
+  height: var(--pixel-350);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-md);
+  color: var(--color-secondary);
+  font-family: var(--font-jakarta);
+}

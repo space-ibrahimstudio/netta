@@ -1,0 +1,144 @@
+.navMenuTabText {
+  position: relative;
+  font-size: var(--font-xsm);
+  font-family: var(--font-inter);
+  font-weight: 600;
+  color: inherit;
+  text-align: left;
+}
+
+.navMenuTab {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: var(--pixel-10);
+  border: 1px solid transparent;
+  padding: var(--pixel-10) var(--pixel-15);
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-radius: var(--pixel-10);
+  box-sizing: border-box;
+  height: var(--pixel-40);
+  transition: var(--transit);
+}
+
+.navMenuTab:hover {
+  color: var(--color-primary);
+}
+
+.navMenuTab:focus {
+  outline: none;
+}
+
+.active {
+  color: var(--color-primary);
+  background-color: var(--color-primary-10);
+}
+
+.dropdownButtonText {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-mini);
+  font-family: var(--font-inter);
+  font-weight: 600;
+  color: inherit;
+  text-align: left;
+}
+
+.dropdownButtonIcon {
+  opacity: 0;
+  overflow: hidden;
+  color: inherit;
+  flex-direction: row;
+  justify-content: center;
+  transform: translateX(var(--pixel-min-10));
+  transition: var(--transit);
+}
+
+.dropdownButton:hover .dropdownButtonIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dropdown,
+.dropdownButton,
+.dropdownButtonIcon {
+  display: flex;
+  align-items: center;
+}
+
+.dropdownButton {
+  cursor: pointer;
+  padding: var(--pixel-10) var(--pixel-15);
+  background-color: transparent;
+  align-self: stretch;
+  box-sizing: border-box;
+  min-height: var(--pixel-40);
+  color: var(--color-light);
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--pixel-10);
+  transition: var(--transit);
+  border-bottom: 1px solid var(--color-light-20);
+}
+
+.dropdownButton:last-child {
+  border-bottom: 1px solid transparent;
+}
+
+.dropdownButton:hover {
+  background-color: var(--color-secondary-20);
+}
+
+.dropdown {
+  position: absolute;
+  top: var(--pixel-45);
+  left: 0;
+  border-radius: var(--pixel-10);
+  background-color: var(--color-primary);
+  box-shadow: 0 var(--pixel-20) var(--pixel-5) transparent, 0 var(--pixel-15) var(--pixel-5) transparent, 0 var(--pixel-10) var(--pixel-5) rgba(0, 0, 0, 0.01), 0 var(--pixel-5) var(--pixel-5) rgba(0, 0, 0, 0.02), 0 1px var(--pixel-2) rgba(0, 0, 0, 0.03);
+  width: var(--pixel-200);
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 59;
+}
+
+.dropdown.opened {
+  animation-name: instantreveal;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.dropdown.closed {
+  animation-name: instanthide;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes instantreveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--pixel-min-15));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes instanthide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--pixel-min-15));
+  }
+}

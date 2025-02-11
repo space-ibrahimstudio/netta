@@ -1,0 +1,350 @@
+.modalDesc,
+.modalTitle {
+  align-self: stretch;
+  position: relative;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: -webkit-inline-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.modalContentWrap:last-child {
+  border-bottom: unset;
+}
+
+.modalContentWrap {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--pixel-20);
+  padding: var(--pixel-20);
+  border-bottom: 1px solid var(--color-secondary-10);
+}
+
+.modalContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.modalDesc {
+  font-size: var(--font-xsm);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-secondary);
+  opacity: 0.5;
+}
+
+.modalHead {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--pixel-5);
+  text-align: left;
+  font-size: var(--font-md);
+  color: var(--color-hint);
+  font-family: var(--font-jakarta);
+}
+
+.modalNav {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--pixel-10);
+}
+
+.itemText {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+}
+
+.modalBody,
+.modalItem {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--pixel-10);
+}
+
+.modalBody {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eventModal {
+  width: 100%;
+  box-shadow: 0 var(--pixel-20) var(--pixel-5) transparent, 0 var(--pixel-15) var(--pixel-5) transparent, 0 var(--pixel-10) var(--pixel-5) rgba(0, 0, 0, 0.01), 0 var(--pixel-5) var(--pixel-5) rgba(0, 0, 0, 0.02), 0 1px var(--pixel-2) rgba(0, 0, 0, 0.03);
+  border-radius: var(--pixel-20);
+  background-color: var(--color-foreground);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--pixel-20);
+  box-sizing: border-box;
+  gap: var(--pixel-20);
+  max-width: var(--pixel-500);
+  text-align: left;
+  font-size: var(--font-xsm);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+  animation-name: slideup;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.eventModal.close {
+  animation-name: slidedown;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(var(--pixel-30));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slidedown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--pixel-30));
+  }
+}
+
+.modalScreen {
+  align-self: stretch;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 100vh;
+  justify-content: center;
+  padding: var(--pixel-30);
+  box-sizing: border-box;
+  animation-name: fadein;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.modalScreen.close {
+  animation-name: fadeout;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 700px) {
+  .modalScreen {
+    padding: var(--pixel-20);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modalScreen,
+.modalScroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalScroll {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100vh;
+  overflow-y: auto;
+  justify-content: flex-start;
+}
+
+.eventText {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dateEvent {
+  opacity: 1;
+  cursor: pointer;
+  align-self: stretch;
+  border-radius: var(--pixel-5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-5);
+  text-align: left;
+  font-size: var(--font-tiny);
+  font-family: var(--font-inter);
+  transition: var(--transit);
+}
+
+.dateEvent.disabled {
+  cursor: default;
+}
+
+.dateEvent.active:hover {
+  opacity: 0.8;
+}
+
+.dateEventUl {
+  opacity: 1;
+  align-self: stretch;
+  display: flex;
+  gap: var(--pixel-5);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.dateEventUl.disabled {
+  opacity: 0.5;
+}
+
+.dateText {
+  position: relative;
+  font-weight: 600;
+}
+
+.calendarDate {
+  flex: 1;
+  border: 1px solid var(--color-secondary-10);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--pixel-10);
+  gap: var(--pixel-10);
+  min-width: var(--pixel-100);
+  min-height: var(--pixel-100);
+  text-align: left;
+  font-size: var(--font-sm);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+  transition: var(--transit);
+}
+
+.calendarDate.clickable {
+  cursor: pointer;
+}
+
+.calendarDate:hover {
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.daysText {
+  position: relative;
+  font-weight: 600;
+}
+
+.calendarDays {
+  flex: 1;
+  background-color: var(--color-hint-5);
+  border: 1px solid var(--color-primary-10);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-10);
+  min-width: var(--pixel-100);
+  text-align: left;
+  font-size: var(--font-xsm);
+  color: var(--color-hint);
+  font-family: var(--font-inter);
+}
+
+.calendarGrid {
+  flex: 1;
+  border-radius: var(--pixel-10);
+  border: 1px solid var(--color-secondary-10);
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar,
+.calendarHscroll {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.calendarHscroll {
+  flex-direction: row;
+}
+
+.calendar {
+  border-radius: var(--pixel-20);
+  background-color: var(--color-secondlight);
+  overflow: hidden;
+  flex-direction: column;
+  padding: var(--pixel-10);
+  text-align: left;
+  font-size: var(--font-sm);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}

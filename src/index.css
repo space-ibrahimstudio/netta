@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+body {
+  margin: 0;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:modal-root {
+  overflow-y: auto;
+}
+
+:root {
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --transit: all 0.3s ease-in-out;
+
+  --color-primary: #21a3d9;
+  --color-primary-5: rgba(33, 163, 217, 0.05);
+  --color-primary-10: rgba(33, 163, 217, 0.1);
+  --color-primary-20: rgba(33, 163, 217, 0.2);
+  --color-primary-30: rgba(33, 163, 217, 0.3);
+  --color-primary-50: rgba(33, 163, 217, 0.5);
+  --color-secondary: #232323;
+  --color-secondary-5: rgba(35, 35, 35, 0.05);
+  --color-secondary-10: rgba(35, 35, 35, 0.1);
+  --color-secondary-20: rgba(35, 35, 35, 0.2);
+  --color-secondary-50: rgba(35, 35, 35, 0.5);
+  --color-foreground: #f8f8fa;
+  --color-hint: #227da2;
+  --color-hint-5: rgba(34, 125, 162, 0.05);
+  --color-hint-20: rgba(34, 125, 162, 0.2);
+  --color-light: #fffbfb;
+  --color-light-20: rgba(255, 251, 251, 0.2);
+  --color-light-30: rgba(255, 251, 251, 0.3);
+  --color-light-50: rgba(255, 251, 251, 0.5);
+  --color-yellow: #ffb800;
+  --color-yellow-4: rgba(255, 184, 0, 0.04);
+  --color-yellow-5: rgba(255, 184, 0, 0.05);
+  --color-yellow-10: rgba(255, 184, 0, 0.1);
+  --color-yellow-20: rgba(255, 184, 0, 0.2);
+  --color-green: #18c964;
+  --color-green-4: rgba(24, 201, 100, 0.04);
+  --color-green-5: rgba(24, 201, 100, 0.05);
+  --color-green-10: rgba(24, 201, 100, 0.1);
+  --color-green-20: rgba(24, 201, 100, 0.2);
+  --color-green-30: rgba(24, 201, 100, 0.3);
+  --color-red: #f31260;
+  --color-red-4: rgba(243, 18, 96, 0.04);
+  --color-red-5: rgba(243, 18, 96, 0.05);
+  --color-red-10: rgba(243, 18, 96, 0.1);
+  --color-red-20: rgba(243, 18, 96, 0.2);
+  --color-red-30: rgba(243, 18, 96, 0.3);
+
+  --theme-font: "Inter", sans-serif;
+  --theme-color-base: #fffbfb;
+  --theme-color-primary: #21a3d9;
+  --theme-color-secondary: #232323;
+
+  --font-xlg: 50px;
+  --font-lg: 35px;
+  --font-md: 25px;
+  --font-sm: 18px;
+  --font-xsm: 16px;
+  --font-mini: 14px;
+  --font-tiny: 12px;
+
+  --pixel-2: 2px;
+  --pixel-5: 5px;
+  --pixel-6: 6px;
+  --pixel-7: 7px;
+  --pixel-10: 10px;
+  --pixel-12: 12px;
+  --pixel-15: 15px;
+  --pixel-18: 18px;
+  --pixel-20: 20px;
+  --pixel-22: 22px;
+  --pixel-24: 24px;
+  --pixel-25: 25px;
+  --pixel-30: 30px;
+  --pixel-35: 35px;
+  --pixel-40: 40px;
+  --pixel-42: 42px;
+  --pixel-45: 45px;
+  --pixel-50: 50px;
+  --pixel-55: 55px;
+  --pixel-60: 60px;
+  --pixel-65: 65px;
+  --pixel-70: 70px;
+  --pixel-75: 75px;
+  --pixel-80: 80px;
+  --pixel-85: 85px;
+  --pixel-90: 90px;
+  --pixel-95: 95px;
+  --pixel-100: 100px;
+  --pixel-120: 120px;
+  --pixel-150: 150px;
+  --pixel-200: 200px;
+  --pixel-250: 250px;
+  --pixel-300: 300px;
+  --pixel-350: 350px;
+  --pixel-400: 400px;
+  --pixel-450: 450px;
+  --pixel-500: 500px;
+  --pixel-550: 550px;
+  --pixel-600: 600px;
+  --pixel-650: 650px;
+  --pixel-700: 700px;
+  --pixel-750: 750px;
+  --pixel-800: 800px;
+  --pixel-850: 850px;
+  --pixel-900: 900px;
+  --pixel-950: 950px;
+
+  --pixel-min-2: -2px;
+  --pixel-min-5: -5px;
+  --pixel-min-10: -10px;
+  --pixel-min-15: -15px;
+  --pixel-min-20: -20px;
+  --pixel-min-30: -30px;
+}
+
+@media screen and (min-width: 701px) and (max-width: 1120px) {
+  :root {
+    --font-xlg: 42.8px;
+    --font-lg: 30px;
+    --font-md: 21.4px;
+    --font-sm: 15.4px;
+    --font-xsm: 13.7px;
+    --font-mini: 12px;
+    --font-tiny: 10.2px;
+
+    --pixel-2: 1.7px;
+    --pixel-5: 4px;
+    --pixel-6: 5px;
+    --pixel-7: 6px;
+    --pixel-10: 8.5px;
+    --pixel-12: 10px;
+    --pixel-15: 13px;
+    --pixel-18: 15.5px;
+    --pixel-20: 17px;
+    --pixel-22: 19px;
+    --pixel-24: 20.5px;
+    --pixel-25: 21px;
+    --pixel-30: 26px;
+    --pixel-35: 30px;
+    --pixel-40: 34px;
+    --pixel-42: 36px;
+    --pixel-45: 38.5px;
+    --pixel-50: 43px;
+    --pixel-55: 47px;
+    --pixel-60: 51.5px;
+    --pixel-65: 56px;
+    --pixel-70: 60px;
+    --pixel-75: 64px;
+    --pixel-80: 68.5px;
+    --pixel-85: 73px;
+    --pixel-90: 77px;
+    --pixel-95: 81.5px;
+    --pixel-100: 85px;
+    --pixel-120: 103px;
+    --pixel-150: 128.5px;
+    --pixel-200: 171.5px;
+    --pixel-250: 214px;
+    --pixel-300: 257px;
+    --pixel-350: 300px;
+    --pixel-400: 343px;
+    --pixel-450: 386px;
+    --pixel-500: 428.5px;
+    --pixel-550: 471.5px;
+    --pixel-600: 514px;
+    --pixel-650: 557px;
+    --pixel-700: 600px;
+    --pixel-750: 643px;
+    --pixel-800: 686px;
+    --pixel-850: 728.5px;
+    --pixel-900: 771.5px;
+    --pixel-950: 950px;
+
+    --pixel-min-2: -1.7px;
+    --pixel-min-5: -4px;
+    --pixel-min-10: -8.5px;
+    --pixel-min-15: -13px;
+    --pixel-min-20: -17px;
+    --pixel-min-30: -26px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  :root {
+    --font-xlg: 35.7px;
+    --font-lg: 25px;
+    --font-md: 17.8px;
+    --font-sm: 12.8px;
+    --font-xsm: 11.4px;
+    --font-mini: 10px;
+    --font-tiny: 8.5px;
+
+    --pixel-2: 1.5px;
+    --pixel-5: 3.5px;
+    --pixel-6: 4px;
+    --pixel-7: 5px;
+    --pixel-10: 7px;
+    --pixel-12: 8.5px;
+    --pixel-15: 11px;
+    --pixel-18: 13px;
+    --pixel-20: 14px;
+    --pixel-22: 15.5px;
+    --pixel-24: 17px;
+    --pixel-25: 18px;
+    --pixel-30: 21px;
+    --pixel-35: 25px;
+    --pixel-40: 29px;
+    --pixel-42: 30px;
+    --pixel-45: 32px;
+    --pixel-50: 36px;
+    --pixel-55: 39px;
+    --pixel-60: 43px;
+    --pixel-65: 46.5px;
+    --pixel-70: 50px;
+    --pixel-75: 53.5px;
+    --pixel-80: 57px;
+    --pixel-85: 61px;
+    --pixel-90: 64px;
+    --pixel-95: 68px;
+    --pixel-100: 71.5px;
+    --pixel-120: 86px;
+    --pixel-150: 107px;
+    --pixel-200: 143px;
+    --pixel-250: 179px;
+    --pixel-300: 214.5px;
+    --pixel-350: 250px;
+    --pixel-400: 286px;
+    --pixel-450: 321.5px;
+    --pixel-500: 357px;
+    --pixel-550: 393px;
+    --pixel-600: 428.5px;
+    --pixel-650: 464px;
+    --pixel-700: 500px;
+    --pixel-750: 536px;
+    --pixel-800: 571px;
+    --pixel-850: 607px;
+    --pixel-900: 643px;
+    --pixel-950: 950px;
+
+    --pixel-min-2: -1.5px;
+    --pixel-min-5: -3.5px;
+    --pixel-min-10: -7px;
+    --pixel-min-15: -11px;
+    --pixel-min-20: -14px;
+    --pixel-min-30: -21px;
+  }
+}

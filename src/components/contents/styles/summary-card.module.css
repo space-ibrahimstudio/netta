@@ -1,0 +1,30 @@
+.summaryLabel,
+.summaryValue {
+  align-self: stretch;
+  position: relative;
+}
+
+.summaryLabel {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-secondary);
+}
+
+.summaryCard {
+  flex: 1;
+  border-radius: var(--pixel-10);
+  border: 1px solid var(--color-primary-20);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--pixel-20);
+  gap: var(--pixel-10);
+  text-align: left;
+  font-size: var(--font-md);
+  color: var(--color-hint);
+  font-family: var(--font-jakarta);
+}

@@ -1,0 +1,44 @@
+name: KPI NETTA v1.0.0 (push)
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  web-deploy:
+    name: Deploy on master
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.12.1]
+
+    steps:
+      - name: 1. Get latest code
+        uses: actions/checkout@v4
+
+      - name: 2. Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 3. Export environment variables
+        run: echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" >> $GITHUB_ENV
+
+      - name: 4. Installing required packages
+        run: npm install
+
+      - name: 5. Builds the app for production
+        run: CI= npm run build
+
+      - name: 6. List output files
+        run: find build/ -print
+
+      - name: 7. Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: build/

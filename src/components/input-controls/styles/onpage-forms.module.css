@@ -1,0 +1,42 @@
+.formFooter {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--pixel-10);
+}
+
+.formTitle {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.formHead {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-md);
+  color: var(--color-hint);
+  font-family: var(--font-jakarta);
+}
+
+.onpageForm {
+  margin: 0;
+  align-self: stretch;
+  border-radius: var(--pixel-20);
+  background-color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-20);
+  gap: var(--pixel-20);
+}

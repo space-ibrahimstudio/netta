@@ -1,0 +1,31 @@
+name: KPI NETTA v1.0.0 (cron)
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+
+jobs:
+  post_request:
+    name: Find Failed Job
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.12.1]
+
+    steps:
+      - name: 1. Get latest code
+        uses: actions/checkout@v2
+
+      - name: 2. Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 3. Installing required packages
+        run: npm install
+
+      - name: 4. Make a POST request to API
+        run: node cron.js
+        env:
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}

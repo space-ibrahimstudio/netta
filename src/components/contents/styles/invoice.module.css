@@ -1,0 +1,274 @@
+.headerLogoIcon {
+  width: 133.6px;
+  position: relative;
+  height: auto;
+}
+.headerOutlet {
+  align-self: stretch;
+  position: relative;
+}
+.headerLeft {
+  width: 267.2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.headerInvoiceno {
+  font-size: 16px;
+}
+.headerInvoiceno,
+.headerName {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+  color: #0f3948;
+}
+.headerRight {
+  width: 267.2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 4px;
+  text-align: right;
+}
+.header {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: left;
+  font-size: 13.4px;
+  color: rgba(15, 57, 72, 0.7);
+  font-family: Inter;
+}
+.subHeaderLeft {
+  width: 267.2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.th1Marker,
+.th1Text {
+  position: relative;
+  font-weight: 600;
+}
+.th1Text {
+  align-self: stretch;
+}
+.headTh1,
+.th1Textwrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.headTh1 {
+  overflow: hidden;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 13.4px;
+}
+.contentHead {
+  align-self: stretch;
+  border-radius: 20.04px;
+  background-color: rgba(56, 128, 235, 0.1);
+  overflow: hidden;
+  justify-content: center;
+}
+.bodyTd2,
+.bodyTr,
+.contentHead {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.bodyTd2 {
+  flex: 1;
+  overflow: hidden;
+  justify-content: flex-start;
+  padding: 20px;
+  color: rgba(15, 57, 72, 0.7);
+}
+.bodyTr {
+  align-self: stretch;
+  border-bottom: 1.3px solid rgba(15, 57, 72, 0.05);
+  justify-content: center;
+}
+.contentBody,
+.labelWrap,
+.summaryLabel {
+  display: flex;
+  justify-content: flex-start;
+}
+.contentBody {
+  align-self: stretch;
+  border-radius: 20.04px;
+  border: 1.3px solid rgba(56, 128, 235, 0.2);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+}
+.labelWrap,
+.summaryLabel {
+  flex: 1;
+}
+.labelWrap {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6.7px;
+}
+.summaryLabel {
+  overflow: hidden;
+  padding: 20px;
+}
+.contentSummary,
+.summaryLabel,
+.summaryValue {
+  flex-direction: row;
+  align-items: flex-start;
+}
+.summaryValue {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  text-align: right;
+}
+.contentSummary {
+  width: 100%;
+  border-radius: 20.04px;
+  background-color: rgba(56, 128, 235, 0.1);
+  justify-content: center;
+  max-width: 467.6470642089844px;
+}
+.content,
+.contentFooter,
+.contentSummary {
+  overflow: hidden;
+  display: flex;
+}
+.contentFooter {
+  width: 100%;
+  border-radius: 20.04px;
+  background-color: #3880eb;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 467.6470642089844px;
+  color: #fff;
+}
+.content {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 13.4px;
+  min-height: 500px;
+  text-align: left;
+  font-size: 13.4px;
+  color: #0f3948;
+  font-family: Inter;
+}
+.paymentValue,
+.paymentView {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.paymentValue {
+  flex: 1;
+  justify-content: flex-end;
+  padding: 20px;
+  text-align: right;
+  color: #0f3948;
+}
+.paymentView {
+  width: 100%;
+  border-radius: 20.04px;
+  border: 1.3px solid rgba(56, 128, 235, 0.2);
+  box-sizing: border-box;
+  justify-content: center;
+  max-width: 467.6470642089844px;
+}
+.leftDesc,
+.paymentInfo {
+  align-self: stretch;
+  color: rgba(15, 57, 72, 0.7);
+}
+.paymentInfo {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 20px;
+  text-align: left;
+  font-size: 13.4px;
+  font-family: Inter;
+}
+.leftDesc {
+  position: relative;
+}
+.footerLeft {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.footer,
+.footerLeft,
+.footerRight {
+  display: flex;
+  align-items: flex-end;
+}
+.footerRight {
+  width: 267.2px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+  text-align: right;
+  color: rgba(15, 57, 72, 0.7);
+}
+.footer {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  gap: 13.4px;
+  text-align: left;
+  font-size: 13.4px;
+  color: #0f3948;
+  font-family: Inter;
+}
+.canvas,
+.view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.view {
+  align-self: stretch;
+  gap: 13.4px;
+}
+.canvas {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+}

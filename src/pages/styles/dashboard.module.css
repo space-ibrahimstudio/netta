@@ -1,0 +1,80 @@
+.sectionBody {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sectionDesc,
+.sectionTitle {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.sectionDesc {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-secondary);
+}
+
+.sectionHead {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--pixel-15);
+  text-align: center;
+  font-size: var(--font-lg);
+  color: var(--color-hint);
+  font-family: var(--font-jakarta);
+}
+
+.sectionNav,
+.sectionTool {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sectionTool {
+  /* flex: 1; */
+  justify-content: center;
+  gap: var(--pixel-10);
+}
+
+.sectionNav {
+  margin: 0;
+  align-self: stretch;
+  justify-content: space-between;
+  gap: var(--pixel-10) var(--pixel-10);
+}
+
+.section {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-30) var(--pixel-60);
+  gap: var(--pixel-20);
+}
+
+@media screen and (min-width: 701px) and (max-width: 1120px) {
+  .section {
+    padding: var(--pixel-30);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .section {
+    padding: var(--pixel-20);
+  }
+}

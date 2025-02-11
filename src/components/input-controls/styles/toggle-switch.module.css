@@ -1,0 +1,91 @@
+.checkboxWrapper input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkboxWrapper .toggle {
+  position: relative;
+  display: block;
+  width: var(--pixel-42);
+  height: var(--pixel-24);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkboxWrapper .toggle:before {
+  content: "";
+  position: relative;
+  top: 1px;
+  left: 1px;
+  width: var(--pixel-40);
+  height: var(--pixel-22);
+  display: block;
+  background: #c8ccd4;
+  border-radius: var(--pixel-12);
+  transition: background 0.2s ease;
+}
+
+.checkboxWrapper .toggle span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--pixel-24);
+  height: var(--pixel-24);
+  display: block;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 var(--pixel-2) var(--pixel-6) rgba(154, 153, 153, 0.75);
+  transition: all 0.2s ease;
+}
+
+.checkboxWrapper .toggle span svg {
+  margin: var(--pixel-7);
+  fill: none;
+}
+
+.checkboxWrapper .toggle span svg path {
+  stroke: #c8ccd4;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+  transition: all 0.5s linear;
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + .toggle:before {
+  background: var(--color-primary);
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + .toggle span {
+  transform: translateX(var(--pixel-18));
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + .toggle span path {
+  stroke: var(--color-secondary);
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+}
+
+.checkboxWrapper {
+  opacity: 1;
+}
+
+.checkboxWrapper.loading {
+  opacity: 0.5;
+}
+
+.toggleIcon {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: inherit;
+  transition: var(--transit);
+}

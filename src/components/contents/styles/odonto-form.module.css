@@ -1,0 +1,470 @@
+.liText {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+}
+
+.conditionLi {
+  cursor: pointer;
+  align-self: stretch;
+  border-bottom: 1px solid var(--color-secondary-10);
+  box-sizing: border-box;
+  min-height: var(--pixel-45);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-10);
+  gap: var(--pixel-10);
+  text-align: left;
+  font-size: var(--font-mini);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+  transition: var(--transit);
+}
+
+.conditionLi:hover {
+  background-color: var(--color-primary-5);
+}
+
+.conditionLi.active {
+  background-color: var(--color-primary-20);
+}
+
+.conditionLi:last-child {
+  border-bottom: unset;
+}
+
+.conditionSearch {
+  align-self: stretch;
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-secondary-10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-5);
+}
+
+.conditionUl,
+.odontoCondition {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.conditionUl {
+  align-self: stretch;
+  overflow-y: auto;
+}
+
+.conditionUl::-webkit-scrollbar {
+  width: var(--pixel-5);
+}
+
+.conditionUl::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conditionUl::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: var(--pixel-5);
+}
+
+.conditionUl:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
+.odontoCondition {
+  border-radius: var(--pixel-10);
+  background-color: var(--color-light);
+  height: var(--pixel-500);
+  overflow: hidden;
+}
+
+.inputLabel {
+  position: relative;
+  font-weight: 500;
+}
+
+.inputField,
+.scoreInput {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-tiny);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}
+
+.inputField {
+  border: 1px solid var(--color-secondary-10);
+  outline: 0;
+  font-weight: 500;
+  background-color: transparent;
+  width: var(--pixel-50);
+  border-radius: var(--pixel-5);
+  box-sizing: border-box;
+  height: var(--pixel-30);
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-direction: row;
+  justify-content: center;
+  padding: var(--pixel-5);
+}
+
+.inputField.readonly {
+  background-color: var(--color-secondary-5);
+}
+
+.inputField::-webkit-inner-spin-button,
+.inputField::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.scoreInput {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--pixel-2);
+  text-align: left;
+}
+
+.scoreRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pixel-5);
+}
+
+.blockLabel {
+  position: relative;
+  font-weight: 500;
+}
+
+.blockImgIcon {
+  opacity: 0.5;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  z-index: 0;
+  transition: var(--transit);
+}
+
+.blockArea,
+.gramBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blockArea {
+  cursor: pointer;
+  width: var(--pixel-30);
+  height: var(--pixel-30);
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.gramBlock {
+  justify-content: flex-start;
+  gap: var(--pixel-2);
+  text-align: left;
+  font-size: var(--font-tiny);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+  transition: var(--transit);
+}
+
+.gramBlock:hover {
+  color: var(--color-primary);
+}
+
+.gramBlock:hover .blockImgIcon {
+  opacity: 1;
+}
+
+.gramRows {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.topMarkerIcon {
+  width: var(--pixel-10);
+  position: relative;
+  height: auto;
+}
+
+.gramCenter,
+.gramCenterTop,
+.gramTop {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.gramCenter,
+.gramCenterTop {
+  align-items: center;
+  gap: var(--pixel-10);
+}
+
+.gramCenter {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1px;
+}
+
+.gramBot,
+.gramScore {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.gramScore {
+  margin: 0;
+  border-radius: var(--pixel-10);
+  border: 1px solid var(--color-secondary-10);
+  overflow: hidden;
+  align-items: center;
+  padding: var(--pixel-10);
+  gap: var(--pixel-10);
+}
+
+.gramField,
+.odontoGram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gramField {
+  flex: 1;
+  justify-content: center;
+  padding: var(--pixel-15);
+  gap: var(--pixel-20);
+}
+
+.odontoGram {
+  border-radius: var(--pixel-10);
+  background-color: var(--color-light);
+  height: var(--pixel-500);
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.trCbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-5);
+}
+
+.noText {
+  position: relative;
+  font-weight: 600;
+}
+
+.trNo {
+  width: var(--pixel-30);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pixel-5) 0;
+  box-sizing: border-box;
+}
+
+.tdText {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+}
+
+.trTd {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pixel-5);
+}
+
+.historyTr {
+  align-self: stretch;
+  border-bottom: 1px solid var(--color-secondary-10);
+  box-sizing: border-box;
+  height: var(--pixel-45);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--pixel-10);
+  gap: var(--pixel-5);
+  text-align: left;
+  font-size: var(--font-mini);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}
+
+.historyTr:last-child {
+  border-bottom: unset;
+}
+
+.theadCbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--pixel-5);
+}
+
+.noText {
+  position: relative;
+  font-weight: 600;
+}
+
+.theadNo {
+  width: var(--pixel-30);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pixel-5) 0;
+  box-sizing: border-box;
+}
+
+.thText {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+}
+
+.theadTh {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pixel-5);
+}
+
+.historyThead {
+  align-self: stretch;
+  background-color: var(--color-primary-10);
+  border-bottom: 1px solid var(--color-secondary-10);
+  box-sizing: border-box;
+  height: var(--pixel-45);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--pixel-10);
+  gap: var(--pixel-5);
+  text-align: left;
+  font-size: var(--font-mini);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}
+
+.historyTbody,
+.odontoHistory {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.historyTbody {
+  align-self: stretch;
+  overflow-y: auto;
+}
+
+.historyTbody::-webkit-scrollbar {
+  width: var(--pixel-5);
+}
+
+.historyTbody::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.historyTbody::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: var(--pixel-5);
+}
+
+.historyTbody:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
+.odontoHistory {
+  border-radius: var(--pixel-10);
+  background-color: var(--color-light);
+  height: var(--pixel-500);
+  overflow: hidden;
+}
+
+.headText {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.historyHead {
+  align-self: stretch;
+  border-bottom: 1px solid var(--color-secondary-10);
+  box-sizing: border-box;
+  height: var(--pixel-45);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--pixel-15);
+  text-align: left;
+  font-size: var(--font-mini);
+  color: var(--color-secondary);
+  font-family: var(--font-inter);
+}
+
+.odontoForm {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--pixel-5);
+}
