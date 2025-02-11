@@ -68,6 +68,7 @@ const DashboardSlugPage = ({ parent, slug }) => {
   const [selectedEmply, setSelectedEmply] = useState("all");
   const [reportTeamData, setReportTeamData] = useState([]);
   const [absenceData, setAbsenceData] = useState([]);
+  const [assetData, setAssetData] = useState([]);
 
   const [inputData, setInputData] = useState({ ...inputSchema });
   const [errors, setErrors] = useState({ ...errorSchema });
@@ -101,13 +102,16 @@ const DashboardSlugPage = ({ parent, slug }) => {
     setErrors({ ...errorSchema });
   };
 
-  const handleFileUpload = async (file) => {
+  const handleFileUpload = async (placement, file) => {
     const formData = new FormData();
+    let endpoint;
     setIsSubmitting(true);
     try {
       formData.append("data", JSON.stringify({ secret }));
       formData.append("fileimg", file);
-      const data = await apiRead(formData, "kpi", "uploadfile");
+      if (placement === "job") endpoint = "uploadfile";
+      else endpoint = "uploadasset";
+      const data = await apiRead(formData, "kpi", endpoint);
       if (data && data.error === false) return data.data;
       else return null;
     } catch (error) {
@@ -119,12 +123,15 @@ const DashboardSlugPage = ({ parent, slug }) => {
   };
 
   const handleImageSelect = (file) => setSelectedImage(file);
-  const handleFileSelect = async (file, index) => {
+  const handleFileSelect = async (placement, file, index) => {
     if (file) {
-      const link = await handleFileUpload(file);
-      const updatedJobs = [...inputData.job];
-      updatedJobs[index].link = link;
-      setInputData({ ...inputData, job: updatedJobs });
+      const link = await handleFileUpload(placement, file);
+      let updatedarr;
+      if (placement === "job") updatedarr = [...inputData.job];
+      else updatedarr = [...inputData.aset];
+      updatedarr[index].link = link;
+      if (placement === "job") setInputData({ ...inputData, job: updatedarr });
+      else setInputData({ ...inputData, aset: updatedarr });
     }
   };
 
@@ -316,6 +323,11 @@ const DashboardSlugPage = ({ parent, slug }) => {
           if (data && data.data && data.data.length > 0) setAbsenceData(data.data);
           else setAbsenceData([]);
           break;
+        case "ASET":
+          data = await apiRead(formData, "kpi", "viewasset");
+          setAssetData(data && data.data && data.data.length > 0 ? data.data : []);
+          setTotalPages(data && data.data && data.data.length > 0 ? data.TTLPage : 0);
+          break;
         default:
           setTotalPages(0);
           break;
@@ -397,6 +409,9 @@ const DashboardSlugPage = ({ parent, slug }) => {
       case "JOB":
         requiredFields = ["job.link", "job.description"];
         break;
+      case "ASET":
+        requiredFields = ["asetcode", "name", "pic", "amount", "division", "aset.link"];
+        break;
       default:
         requiredFields = [];
         break;
@@ -424,6 +439,9 @@ const DashboardSlugPage = ({ parent, slug }) => {
           break;
         case "JOB":
           submittedData = { secret, idprogdetail: selectedData, type: selectedJobType, detail: inputData.job.map((item) => ({ description: item.description, note: item.note, link: item.link, options: item.options })) };
+          break;
+        case "ASET":
+          submittedData = { secret, kode: inputData.asetcode, name: inputData.name, pic: inputData.pic, amount: inputData.amount, division: inputData.division, link: inputData.aset };
           break;
         default:
           break;
@@ -497,6 +515,7 @@ const DashboardSlugPage = ({ parent, slug }) => {
   const { searchTerm: reportSearch, handleSearch: handleReportSearch, filteredData: filteredReportData, isDataShown: isReportShown } = useSearch(reportData, ["title", "name", "progname", "channel", "sourcename"]);
   const { searchTerm: reportTeamSearch, handleSearch: handleReportTeamSearch, filteredData: filteredReportTeamData, isDataShown: isReportTeamShown } = useSearch(reportTeamData, ["sourcename", "progname", "channel"]);
   const { searchTerm: absenceSearch, handleSearch: handleAbsenceSearch, filteredData: filteredAbsenceData, isDataShown: isAbsenceShown } = useSearch(absenceData, ["name"]);
+  const { searchTerm: assetSearch, handleSearch: handleAssetSearch, filteredData: filteredAssetData, isDataShown: isAssetShown } = useSearch(assetData, ["aset.name"]);
 
   const renderContent = () => {
     switch (slug) {
@@ -946,11 +965,11 @@ const DashboardSlugPage = ({ parent, slug }) => {
                     {item.options === "link" ? (
                       <Input id={`${pageid}-link-${index}`} type="url" radius="md" label="Link Konten" name="link" placeholder={`Masukkan link dengan https://`} value={item.link} onChange={(e) => handleRowChange("job", index, e)} errormsg={errors[`job.${index}.link`] ? errors[`job.${index}.link`] : ""} required />
                     ) : item.options === "img" ? (
-                      <Input id={`${pageid}-link-${index}`} type="file" accept="image/*" radius="md" label="File Gambar" name="link" placeholder="Pilih Gambar" onChange={(file) => handleFileSelect(file, index)} required />
+                      <Input id={`${pageid}-link-${index}`} type="file" accept="image/*" radius="md" label="File Gambar" name="link" placeholder="Pilih Gambar" onChange={(file) => handleFileSelect("job", file, index)} required />
                     ) : item.options === "video" ? (
-                      <Input id={`${pageid}-link-${index}`} type="file" accept="video/*" radius="md" label="File Video" name="link" placeholder="Pilih Video" onChange={(file) => handleFileSelect(file, index)} required />
+                      <Input id={`${pageid}-link-${index}`} type="file" accept="video/*" radius="md" label="File Video" name="link" placeholder="Pilih Video" onChange={(file) => handleFileSelect("job", file, index)} required />
                     ) : (
-                      <Input id={`${pageid}-link-${index}`} type="file" radius="md" label="File" name="link" placeholder="Pilih File" onChange={(file) => handleFileSelect(file, index)} required />
+                      <Input id={`${pageid}-link-${index}`} type="file" radius="md" label="File" name="link" placeholder="Pilih File" onChange={(file) => handleFileSelect("job", file, index)} required />
                     )}
                     <Textarea id={`${pageid}-desc-${index}`} radius="md" label="Deskripsi Pengerjaan" name="description" placeholder="Masukkan hasil pengerjaan" value={item.description} onChange={(e) => handleRowChange("job", index, e)} errormsg={errors[`job.${index}.description`] ? errors[`job.${index}.description`] : ""} rows={5} required />
                     <Textarea id={`${pageid}-note-${index}`} radius="md" label="Catatan" name="note" placeholder="Masukkan catatan" value={item.note} onChange={(e) => handleRowChange("job", index, e)} errormsg={errors[`job.${index}.note`] ? errors[`job.${index}.note`] : ""} rows={5} />
@@ -1185,6 +1204,117 @@ const DashboardSlugPage = ({ parent, slug }) => {
                   <Input id={`${pageid}-filter-startdate`} label="Filter dari:" type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
                   <Input id={`${pageid}-filter-enddate`} label="Hingga:" type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                 </Fieldset>
+              </SubmitForm>
+            )}
+          </Fragment>
+        );
+      case "ASET":
+        const handleDeleteAsset = async (params) => {
+          const confirmmsg = "Apakah anda yakin untuk menghapus data terpilih dari Aset?";
+          const successmsg = "Selamat! Data terpilih dari Aset berhasil dihapus.";
+          const errormsg = "Terjadi kesalahan saat menghapus data. Mohon periksa koneksi internet anda dan coba lagi.";
+          const confirm = window.confirm(confirmmsg);
+          if (!confirm) return;
+          const formData = new FormData();
+          formData.append("data", JSON.stringify({ secret, kode: "", name: "", pic: "", amount: "", division: "", link: [] }));
+          formData.append("iddel", params);
+          setIsFetching(true);
+          try {
+            await apiCrud(formData, "kpi", "cudasset");
+            showNotifications("success", successmsg);
+            await fetchData();
+          } catch (error) {
+            showNotifications("danger", errormsg);
+            console.error(errormsg, error);
+          } finally {
+            setIsFetching(false);
+          }
+        };
+
+        return (
+          <Fragment>
+            <DashboardHead title={pagetitle} />
+            <DashboardToolbar>
+              <DashboardTool>
+                <Input id={`search-data-${pageid}`} radius="md" labeled={false} placeholder="Cari data ..." type="text" value={assetSearch} onChange={(e) => handleAssetSearch(e.target.value)} leadingicon={<Search />} />
+              </DashboardTool>
+              <DashboardTool>
+                <Select id={`limit-data-${pageid}`} labeled={false} noemptyval radius="md" placeholder="Baris per Halaman" value={limit} options={limitopt} onChange={handleLimitChange} readonly={!isAssetShown} />
+                <Button id={`add-new-data-${pageid}`} radius="md" buttonText="Tambah" onClick={openForm} startContent={<Plus />} />
+              </DashboardTool>
+            </DashboardToolbar>
+            <DashboardBody>
+              <Table byNumber isExpandable isDeletable page={currentPage} limit={limit} isNoData={!isAssetShown} isLoading={isFetching}>
+                <THead>
+                  <TR>
+                    <TH isSorted onSort={() => handleSort(assetData, setAssetData, "aset.kode", "text")}>
+                      Kode
+                    </TH>
+                    <TH isSorted onSort={() => handleSort(assetData, setAssetData, "aset.pic", "number")}>
+                      Nama PIC
+                    </TH>
+                    <TH isSorted onSort={() => handleSort(assetData, setAssetData, "aset.division", "text")}>
+                      Divisi
+                    </TH>
+                    <TH isSorted onSort={() => handleSort(assetData, setAssetData, "aset.name", "text")}>
+                      Nama Aset
+                    </TH>
+                    <TH isSorted onSort={() => handleSort(assetData, setAssetData, "aset.amount", "number")}>
+                      Jumlah
+                    </TH>
+                  </TR>
+                </THead>
+                <TBody>
+                  {filteredAssetData.map((data, index) => (
+                    <TR
+                      key={index}
+                      onDelete={() => handleDeleteAsset(data.aset.idasset)}
+                      expandContent={
+                        <Fragment>
+                          {data.file.map((subdata, idx) => (
+                            <Fieldset key={idx} type="row" markers={`${idx + 1}.`} endContent={<Button id={`${pageid}-view-${index}-${idx}`} radius="md" buttonText="Preview" onClick={() => window.open(subdata.link, "_blank")} />}>
+                              <Input id={`${pageid}-id-${index}-${idx}`} radius="md" label="ID Aset" value={subdata.idlinkasset} readonly />
+                              <Input id={`${pageid}-link-${index}-${idx}`} radius="md" label="Link Foto/Video Aset" value={subdata.link} readonly />
+                            </Fieldset>
+                          ))}
+                        </Fragment>
+                      }>
+                      <TD type="code">{data.aset.kode}</TD>
+                      <TD>{data.aset.pic}</TD>
+                      <TD>{data.aset.division}</TD>
+                      <TD>{data.aset.name}</TD>
+                      <TD type="code">{data.aset.amount}</TD>
+                    </TR>
+                  ))}
+                </TBody>
+              </Table>
+            </DashboardBody>
+            {isAssetShown && <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />}
+            {isFormOpen && (
+              <SubmitForm size="md" formTitle="Tambah Data Asset" operation="add" fetching={isFormFetching} onSubmit={(e) => handleSubmit(e, "cudasset")} loading={isSubmitting} onClose={closeForm}>
+                <Fieldset>
+                  <Select id={`${pageid}-pic`} searchable radius="md" label="PIC" placeholder="Pilih PIC" name="pic" value={inputData.pic} options={allEmplyData.map((item) => ({ value: item.idemployee, label: item.name }))} onChange={(selectedValue) => handleInputChange({ target: { name: "pic", value: selectedValue } })} errormsg={errors.pic} required />
+                  <Input id={`${pageid}-division`} radius="md" label="Divisi" placeholder="Masukkan nama divisi" type="text" name="division" value={inputData.division} onChange={handleInputChange} errormsg={errors.division} required />
+                </Fieldset>
+                <Input id={`${pageid}-name`} radius="md" label="Nama Aset" placeholder="Meja kantor" type="text" name="name" value={inputData.name} onChange={handleInputChange} errormsg={errors.name} required />
+                <Fieldset>
+                  <Input id={`${pageid}-code`} radius="md" label="Kode Aset" placeholder="Masukkan kode aset" type="text" name="asetcode" value={inputData.asetcode} onChange={handleInputChange} errormsg={errors.asetcode} required />
+                  <Input id={`${pageid}-amount`} radius="md" label="Jumlah" placeholder="Masukkan jumlah aset" type="number" name="amount" value={inputData.amount} onChange={handleInputChange} errormsg={errors.amount} required />
+                </Fieldset>
+                {inputData.aset.map((item, index) => (
+                  <Fieldset
+                    key={index}
+                    type="row"
+                    markers={`${index + 1}.`}
+                    endContent={
+                      <Fragment>
+                        <Button id={`${pageid}-delete-row-${index}`} subVariant="icon" isTooltip tooltipText="Hapus" size="sm" color={inputData.aset.length <= 1 ? "var(--color-red-30)" : "var(--color-red)"} bgColor="var(--color-red-10)" iconContent={<NewTrash />} onClick={() => handleRmvRow("aset", index)} isDisabled={inputData.aset.length <= 1} />
+                        {index + 1 === inputData.aset.length && <Button id={`${pageid}-add-row`} subVariant="icon" isTooltip tooltipText="Tambah" size="sm" color="var(--color-primary)" bgColor="var(--color-primary-10)" iconContent={<Plus />} onClick={() => handleAddRow("aset")} />}
+                      </Fragment>
+                    }>
+                    <Input id={`${pageid}-link-${index}`} type="file" radius="md" label="Upload Foto/Video" name="link" placeholder="Pilih Media" onChange={(file) => handleFileSelect("aset", file, index)} required />
+                  </Fieldset>
+                ))}
               </SubmitForm>
             )}
           </Fragment>

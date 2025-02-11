@@ -128,6 +128,9 @@ export const inputSchema = {
   correction: "",
   link: "",
   options: "",
+  asetcode: "",
+  amount: "",
+  aset: [{ link: "" }],
 };
 
 export const errorSchema = {
@@ -260,4 +263,7 @@ export const errorSchema = {
   correction: "",
   link: "",
   options: "",
+  asetcode: "",
+  amount: "",
+  aset: [{ link: "" }],
 };
