@@ -1,0 +1,23 @@
+.marker.portfolio {
+  color: var(--color-foreground);
+  border: 0.0625em solid var(--color-foreground);
+  background-color: rgba(35, 35, 35, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.marker.section {
+  color: var(--color-secondary);
+  border: 0.0625em solid var(--color-hint);
+}
+
+.marker {
+  display: flex;
+  flex-direction: row;
+  padding: 0.3125em 0.625em;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-size: 0.75em;
+  font-weight: 700;
+}

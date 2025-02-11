@@ -1,0 +1,64 @@
+{
+  "name": "netta-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ibrahimstudio/button": "^2.0.1",
+    "@ibrahimstudio/icons": "^1.0.10",
+    "@ibrahimstudio/input": "^1.4.7",
+    "@ibrahimstudio/pagination": "^1.0.3",
+    "@ibrahimstudio/react": "^1.0.3",
+    "@ibrahimstudio/select": "^1.0.5",
+    "@ibrahimstudio/textarea": "^1.0.1",
+    "he": "^1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-intersection-observer": "^9.13.1",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "workbox-background-sync": "^6.6.0",
+    "workbox-broadcast-update": "^6.6.0",
+    "workbox-cacheable-response": "^6.6.1",
+    "workbox-core": "^6.6.0",
+    "workbox-expiration": "^6.6.0",
+    "workbox-google-analytics": "^6.6.1",
+    "workbox-navigation-preload": "^6.6.0",
+    "workbox-precaching": "^6.6.0",
+    "workbox-range-requests": "^6.6.0",
+    "workbox-routing": "^6.6.0",
+    "workbox-strategies": "^6.6.0",
+    "workbox-streams": "^6.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "clean": "npm run backup && rimraf build",
+    "backup": "rimraf backup && node src/libs/scripts/backup.js",
+    "restore": "node src/libs/scripts/restore.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "cross-env": "^7.0.3",
+    "rimraf": "^5.0.10",
+    "shelljs": "^0.8.5"
+  }
+}

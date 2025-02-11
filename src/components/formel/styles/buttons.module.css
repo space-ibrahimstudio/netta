@@ -1,0 +1,70 @@
+.icon {
+  width: 2.143em;
+  height: 2.143em;
+  color: inherit;
+  transition: all 0.3s ease-in-out;
+}
+
+.navButton,
+.primButton,
+.navButton:focus,
+.primButton:focus {
+  border: none;
+  outline: none;
+}
+
+.navButton,
+.primButton {
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-family: var(--font-secondary);
+  transition: all 0.3s ease-in-out;
+}
+
+.primButton:hover .icon {
+  transform: rotate(-45deg);
+}
+
+.primButton:hover {
+  box-shadow: rgba(33, 163, 217, 0.1) 0 0.286em 1.143em, rgba(33, 163, 217, 0.1) 0 0.571em 1.714em, rgba(33, 163, 217, 0.1) 0 1.143em 4em, rgba(50, 50, 93, 0.25) 0 0.46875em 0.9375em -0.1875em inset, rgba(0, 0, 0, 0.3) 0 0.28125em 0.5625em -0.28125em inset;
+}
+
+.primButton {
+  border-radius: 999px;
+  height: 2.857em;
+  padding: 0.357em 0.357em 0.357em 1.071em;
+  gap: 0.714em;
+  color: var(--color-foreground);
+  background-color: var(--color-primary);
+}
+
+.navButton:hover,
+.navButton.active {
+  color: var(--color-primary);
+  text-shadow: 0 0 0.428em rgba(33, 163, 217, 0.4);
+}
+
+.navButton {
+  padding: 0.357em 0.714em;
+  color: var(--color-secondary);
+  background-color: transparent;
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+  .navButton,
+  .primButton {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navButton,
+  .primButton {
+    font-size: 10px;
+  }
+}

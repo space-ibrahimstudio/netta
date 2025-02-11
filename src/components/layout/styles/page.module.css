@@ -1,0 +1,19 @@
+.ornament.left,
+.ornament.right {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  /* opacity: 0; */
+}
+
+.ornament.left {
+  transform: translateX(-40px);
+}
+
+.ornament.right {
+  transform: translateX(40px);
+}
+
+.ornament.left.revealed,
+.ornament.right.revealed {
+  /* opacity: 1; */
+  transform: translateX(0);
+}
