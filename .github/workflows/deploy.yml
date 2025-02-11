@@ -1,13 +1,13 @@
-name: KPI NETTA v1.0.0 (push)
+name: Netta Office v1.0.0 (push)
 
 on:
   push:
     branches:
-      - master
+      - office
 
 jobs:
   web-deploy:
-    name: Deploy on master
+    name: Deploy on office
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,7 +24,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 3. Export environment variables
-        run: echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" >> $GITHUB_ENV
+        run: echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL_OFFICE }}" >> $GITHUB_ENV
 
       - name: 4. Installing required packages
         run: npm install
@@ -38,7 +38,7 @@ jobs:
       - name: 7. Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_HOST_OFFICE }}
+          username: ${{ secrets.FTP_USERNAME_OFFICE }}
+          password: ${{ secrets.FTP_PASSWORD_OFFICE }}
           local-dir: build/

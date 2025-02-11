@@ -28,4 +28,4 @@ jobs:
       - name: 4. Make a POST request to API
         run: node cron.js
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL_OFFICE }}
